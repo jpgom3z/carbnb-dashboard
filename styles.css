@@ -1,0 +1,406 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    touch-action: manipulation;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 28px;
+    min-height: 100vh;
+    font-size: 24px;
+    -webkit-text-size-adjust: 100%;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 36px;
+    padding: 28px 24px;
+}
+
+.header h1 {
+    font-size: 100px;
+    margin-bottom: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.filter-dropdown {
+    background: rgba(255, 255, 255, 0.98);
+    color: #667eea;
+    border: none;
+    border-radius: 24px;
+    padding: 24px 32px;
+    font-size: 45px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    outline: none;
+    min-height: 90px;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto 20px auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath fill='%23667eea' d='M18 24L6 12h24z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 28px center;
+    background-size: 36px 36px;
+    padding-right: 80px;
+    background-color: rgba(255, 255, 255, 0.98);
+    transition: all 0.3s ease;
+}
+
+.filter-dropdown:focus {
+    background-color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    transform: translateY(-3px);
+}
+
+.filter-dropdown:active {
+    transform: scale(0.98);
+}
+
+.filter-dropdown:hover {
+    background-color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    transform: translateY(-3px);
+}
+
+.refresh-btn {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 24px 48px;
+    border-radius: 24px;
+    font-size: 45px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    min-height: 90px;
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:active {
+    transform: scale(0.98);
+}
+
+.refresh-btn:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    transform: translateY(-3px);
+}
+
+/* Delivery cards - modern premium design */
+.delivery-card {
+    background: white;
+    border-radius: 28px;
+    padding: 44px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.delivery-card:hover {
+    box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+    transform: translateY(-4px);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.main-label {
+    font-size: 50px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 32px;
+    word-wrap: break-word;
+    line-height: 1.3;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(102, 126, 234, 0.15);
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    border-radius: 16px;
+    color: #4a5568;
+    font-size: 45px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+}
+
+.info-row:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    transform: translateX(4px);
+}
+
+.info-row .icon {
+    margin-right: 16px;
+    font-size: 48px;
+    flex-shrink: 0;
+    min-width: 52px;
+}
+
+.info-row .label {
+    font-weight: 700;
+    margin-right: 12px;
+    flex-shrink: 0;
+    font-size: 45px;
+    color: #2d3748;
+}
+
+.info-row span:last-child {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 45px;
+}
+
+.flight-status {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 38px;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.status-active {
+    background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+    color: #22543d;
+}
+
+.status-landed {
+    background: linear-gradient(135deg, #bee3f8, #90cdf4);
+    color: #2c5282;
+}
+
+.status-delayed {
+    background: linear-gradient(135deg, #fed7d7, #fc8181);
+    color: #742a2a;
+}
+
+.empty-state {
+    background: white;
+    border-radius: 28px;
+    padding: 80px 44px;
+    text-align: center;
+    color: #718096;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.empty-state .icon {
+    font-size: 120px;
+    margin-bottom: 32px;
+    opacity: 0.5;
+    filter: grayscale(20%);
+}
+
+.empty-state h2 {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.empty-state p {
+    font-size: 42px;
+    color: #718096;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    padding: 80px 44px;
+}
+
+.loading div:last-child {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.spinner {
+    border: 7px solid rgba(255,255,255,0.25);
+    border-top: 7px solid white;
+    border-radius: 50%;
+    width: 84px;
+    height: 84px;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 28px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Car dropdown - premium design */
+.car-dropdown {
+    background: white;
+    border: 3px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px 28px;
+    font-size: 45px;
+    font-weight: 600;
+    color: #2d3748;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23667eea' d='M16 20L6 10h20z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 24px center;
+    background-size: 32px 32px;
+    padding-right: 70px;
+    min-height: 85px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.car-dropdown:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+}
+
+.car-dropdown:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.15);
+}
+
+.car-dropdown:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* WhatsApp link - premium */
+.whatsapp-link {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    word-break: break-all;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 45px;
+    min-height: 56px;
+    border-bottom: 3px solid transparent;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;
+    border-bottom-color: #128C7E;
+    transform: translateX(4px);
+}
+
+.whatsapp-link:active {
+    color: #075E54;
+}
+
+/* Toast notifications - modern */
+.toast {
+    position: fixed;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
+    color: white;
+    padding: 28px 48px;
+    border-radius: 52px;
+    font-weight: 700;
+    font-size: 50px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive - stack on very small screens */
+@media (max-width: 600px) {
+    .controls {
+    flex-direction: column;
+    }
+    
+    .filter-dropdown,
+    .refresh-btn {
+    max-width: 100%;
+    width: 100%;
+    }
+}
+
+/* Tablet optimization */
+@media (min-width: 768px) {
+    .container {
+    max-width: 900px;
+    }
+    
+    .header h1 {
+    font-size: 110px;
+    }
+}
+
+/* Large screens - reduce some sizes */
+@media (min-width: 1024px) {
+    body {
+    font-size: 20px;
+    }
+    
+    .header h1 {
+    font-size: 80px;
+    }
+    
+    .main-label {
+    font-size: 40px;
+    }
+    
+    .info-row,
+    .info-row .label,
+    .info-row span:last-child {
+    font-size: 32px;
+    }
+    
+    .filter-dropdown,
+    .refresh-btn {
+    font-size: 28px;
+    }
+    
+    .car-dropdown,
+    .whatsapp-link {
+    font-size: 32px;
+    }
+}

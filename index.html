@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a73e8">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <title>CarBnB</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🚗 Próximas reservas</h1>
+
+      <select id="filterSelect" class="filter-dropdown">
+        <option value="today">Hoy</option>
+        <option value="tomorrow">Mañana</option>
+        <option value="week">Próximos 7 días</option>
+        <option value="all">Todas pendientes</option>
+      </select>
+      
+      <button class="refresh-btn" onclick="loadDeliveries()">🔄 Actualizar</button>
+    </div>
+    
+    <div id="deliveries-container">
+      <div class="loading">
+        <div class="spinner"></div>
+        <div>Cargando entregas...</div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
