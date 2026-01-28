@@ -1,0 +1,192 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark-mode .header {
+    color: #e8e8e8;
+}
+
+.dark-mode .header h1 {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.dark-mode .filter-dropdown {
+    background: rgba(40, 44, 52, 0.98) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23a8b3ff' d='M10 13L4 7h12z'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background-size: 20px 20px;
+    color: #a8b3ff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dark-mode .filter-dropdown:focus,
+.dark-mode .filter-dropdown:hover {
+    background-color: #2d313a;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.dark-mode .refresh-btn {
+    background: #282c34;
+    color: #a8b3ff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dark-mode .refresh-btn:hover {
+    background: #2d313a;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.dark-mode .delivery-card {
+    background: #282c34;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-color: transparent;
+}
+
+.dark-mode .delivery-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    border-color: rgba(168, 179, 255, 0.3);
+}
+
+.dark-mode .main-label {
+    color: #e8e8e8;
+    border-bottom-color: rgba(168, 179, 255, 0.2);
+}
+
+.dark-mode .info-row {
+    background: linear-gradient(135deg, rgba(168, 179, 255, 0.08), rgba(118, 75, 162, 0.08));
+    color: #b8c5d6;
+}
+
+.dark-mode .info-row:hover {
+    background: linear-gradient(135deg, rgba(168, 179, 255, 0.15), rgba(118, 75, 162, 0.15));
+}
+
+.dark-mode .info-row .label {
+    color: #e8e8e8;
+}
+
+.dark-mode .flight-status {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.dark-mode .status-active {
+    background: linear-gradient(135deg, #2d5a3d, #3d7a4d);
+    color: #9ae6b4;
+}
+
+.dark-mode .status-landed {
+    background: linear-gradient(135deg, #2c4a72, #3c5a82);
+    color: #90cdf4;
+}
+
+.dark-mode .status-delayed {
+    background: linear-gradient(135deg, #742a2a, #943a3a);
+    color: #fc8181;
+}
+
+.dark-mode .empty-state {
+    background: #282c34;
+    color: #9ca3af;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.dark-mode .empty-state h2 {
+    color: #e8e8e8;
+}
+
+.dark-mode .empty-state p {
+    color: #9ca3af;
+}
+
+.dark-mode .loading {
+    color: #e8e8e8;
+}
+
+.dark-mode .spinner {
+    border-color: rgba(232, 232, 232, 0.25);
+    border-top-color: #e8e8e8;
+}
+
+.dark-mode .car-dropdown {
+    background: #282c34 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23a8b3ff' d='M10 13L4 7h12z'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background-size: 20px 20px;
+    border-color: #3d4450;
+    color: #e8e8e8;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.dark-mode .car-dropdown:hover {
+    border-color: #a8b3ff;
+    box-shadow: 0 3px 10px rgba(168, 179, 255, 0.2);
+}
+
+.dark-mode .car-dropdown:focus {
+    border-color: #a8b3ff;
+    box-shadow: 0 0 0 3px rgba(168, 179, 255, 0.2);
+}
+
+.dark-mode .whatsapp-link {
+    color: #4ade80;
+}
+
+.dark-mode .whatsapp-link:hover {
+    color: #22c55e;
+    border-bottom-color: #22c55e;
+}
+
+.dark-mode .whatsapp-link:active {
+    color: #16a34a;
+}
+
+.dark-mode .toast {
+    background: linear-gradient(135deg, rgba(40, 44, 52, 0.98), rgba(40, 44, 52, 0.95));
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.98);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    outline: none;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+.dark-mode .dark-mode-toggle {
+    background: #282c34;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 600px) {
+    .dark-mode-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        top: 16px;
+        right: 16px;
+    }
+}

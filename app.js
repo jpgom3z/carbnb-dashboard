@@ -1,10 +1,12 @@
-
-    // YOUR APPS SCRIPT URL HERE
+// YOUR APPS SCRIPT URL HERE
     const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbweNbE_UnRStY4bKt7UodsbrBkFYzKADdw69PnqSVAS61JXJPaIMTPf8y7y1g4HM-1d/exec';
     
     let carInventory = [];
 
     window.onload = function() {
+    // Initialize dark mode
+    initializeDarkMode();
+    
     loadCarInventory(function() {
         loadDeliveries();
     });
@@ -185,4 +187,36 @@
             console.log('Service Worker registration failed:', error);
         });
     });
+
+    // Dark Mode functionality
+    function initializeDarkMode() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for saved dark mode preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+        
+        // Toggle dark mode on button click
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isNowDark = body.classList.contains('dark-mode');
+            
+            // Save preference
+            localStorage.setItem('darkMode', isNowDark);
+            
+            // Update button icon
+            darkModeToggle.textContent = isNowDark ? '☀️' : '🌙';
+            
+            // Add a subtle animation feedback
+            darkModeToggle.style.transform = 'rotate(360deg) scale(1.1)';
+            setTimeout(() => {
+                darkModeToggle.style.transform = '';
+            }, 300);
+        });
     }
+}
