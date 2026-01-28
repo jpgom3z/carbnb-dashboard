@@ -176,7 +176,13 @@
     
     // Register service worker for PWA
     if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Service Worker registered'))
-        .catch(err => console.log('Service Worker registration failed'));
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/carbnb-dashboard/sw.js')
+        .then(registration => {
+            console.log('Service Worker registered successfully:', registration.scope);
+        })
+        .catch(error => {
+            console.log('Service Worker registration failed:', error);
+        });
+    });
     }

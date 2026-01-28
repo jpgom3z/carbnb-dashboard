@@ -1,11 +1,12 @@
 const CACHE_NAME = 'carbnb-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-    '/styles.css',
-    '/app.js',
-    '/icons/icon-192.png',
-    '/icons/icon-512.png'
+  '/carbnb-dashboard/',
+  '/carbnb-dashboard/index.html',
+  '/carbnb-dashboard/styles.css',
+  '/carbnb-dashboard/app.js',
+  '/carbnb-dashboard/manifest.json',
+  '/carbnb-dashboard/icon-192.png',
+  '/carbnb-dashboard/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
