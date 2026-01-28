@@ -53,6 +53,30 @@ body {
     max-width: 100%;
 }
 
+.head-logo {
+    position: absolute;
+    top: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.head-logo img {
+    width: 70px;
+    height: auto;
+}
+
 .filter-dropdown {
     background: rgba(255, 255, 255, 0.98);
     color: #667eea;
@@ -130,6 +154,7 @@ body {
     border-radius: 16px;
     padding: 16px;
     margin-bottom: 12px;
+    margin-top: 5px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border: 2px solid transparent;
