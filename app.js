@@ -1,12 +1,16 @@
-// YOUR APPS SCRIPT URL HERE
     const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbweNbE_UnRStY4bKt7UodsbrBkFYzKADdw69PnqSVAS61JXJPaIMTPf8y7y1g4HM-1d/exec';
     
     let carInventory = [];
 
     window.onload = function() {
-    // Initialize dark mode
+    if (!auth.isAuthenticated()) {
+        auth.showLoginScreen();
+        return;
+    }
+
+    // Initialize dark mode only for authenticated users
     initializeDarkMode();
-    
+
     loadCarInventory(function() {
         loadDeliveries();
     });
@@ -14,7 +18,7 @@
     };
 
     function loadCarInventory(callback) {
-    fetch(`${BACKEND_URL}?action=getCarInventory`)
+    fetch(`${BACKEND_URL}?action=getCarInventory&apiKey=${encodeURIComponent(auth.getApiKey())}`)
         .then(response => response.json())
         .then(cars => {
         carInventory = cars;
@@ -37,7 +41,7 @@
         </div>
     `;
     
-    fetch(`${BACKEND_URL}?action=getDeliveries&filter=${filter}`)
+    fetch(`${BACKEND_URL}?action=getDeliveries&filter=${filter}&apiKey=${encodeURIComponent(auth.getApiKey())}`)
         .then(response => response.json())
         .then(deliveries => displayDeliveries(deliveries))
         .catch(error => showError(error));
@@ -135,7 +139,7 @@
     
     selectElement.disabled = true;
     
-    fetch(`${BACKEND_URL}?action=updateCarAssignment&rowIndex=${rowIndex}&newCar=${encodeURIComponent(newCar)}`)
+    fetch(`${BACKEND_URL}?action=updateCarAssignment&rowIndex=${rowIndex}&newCar=${encodeURIComponent(newCar)}&apiKey=${encodeURIComponent(auth.getApiKey())}`)
         .then(response => response.json())
         .then(result => {
         selectElement.disabled = false;
