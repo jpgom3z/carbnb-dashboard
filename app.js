@@ -76,7 +76,7 @@
 
         <div class="info-row">
             <span class="icon">🗓️</span>
-            <span class="label">Entrega:</span>
+            <span class="label">Día Entrega:</span>
             <span>${delivery.deliveryDate}</span>
         </div>
         
@@ -108,7 +108,7 @@
         
         <div class="info-row">
             <span class="icon">🕐</span>
-            <span class="label">Entrega:</span>
+            <span class="label">Hora Entrega:</span>
             <span>${delivery.arrivalTime} en <strong>${delivery.arrivalPlace}</strong></span>
         </div>
 
