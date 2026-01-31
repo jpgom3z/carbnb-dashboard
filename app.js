@@ -42,7 +42,7 @@
         .then(deliveries => displayDeliveries(deliveries))
         .catch(error => showError(error));
     }
-    
+
     function displayDeliveries(deliveries) {
     const container = document.getElementById('deliveries-container');
     
@@ -99,23 +99,31 @@
                 : 'N/A'}
             </span>
         </div>
-        
+        ${delivery.flight ? `
         <div class="info-row">
             <span class="icon">✈️</span>
             <span class="label">Vuelo:</span>
             <span>${delivery.flight}</span>
-        </div>
+        </div>` : ''}
         
         <div class="info-row">
             <span class="icon">🕐</span>
-            <span class="label">Llegada:</span>
-            <span>${delivery.arrival}</span>
+            <span class="label">Entrega:</span>
+            <span>${delivery.arrivalTime} en <strong>${delivery.arrivalPlace}</strong></span>
+        </div>
+
+        <div class="info-row">
+            <span class="icon">↩️</span>
+            <span class="label">Devolución:</span>
+            <span>${delivery.returnTime} en <strong>${delivery.returnPlace}</strong></span>
         </div>
         
-        ${delivery.status ? `
-            <span class="flight-status ${getStatusClass(delivery.status)}">
-            ${delivery.status}
-            </span>
+        ${delivery.notes ? `
+        <div class="info-row">
+            <span class="icon">📝</span>
+            <span class="label">Notas:</span>
+            <span>${delivery.notes}</span>
+        </div>
         ` : ''}
         </div>
     `).join('');
