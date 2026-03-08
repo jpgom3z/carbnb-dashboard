@@ -17,25 +17,4 @@ Open `index.html` in a web browser to view the dashboard.
 
 ## Mobile Optimization
 
-The interface is designed primarily for mobile devices with touch-friendly buttons and appropriately sized text for easy readability on smartphones.
-
-\
-\\\
-\\\
-\\\\\\\\\\\\\\\\\\\
-
-\\\\\\\\\\\\\\\\ 
-
-
-
-
-
-
-
-
-
-
-
-   
-      
-                                                                                                                                          
+The interface is designed primarily for mobile devices with touch-friendly buttons and appropriately sized text for easy readability on smartphones.                                                                                                                         
