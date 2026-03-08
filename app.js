@@ -1,6 +1,7 @@
     const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbweNbE_UnRStY4bKt7UodsbrBkFYzKADdw69PnqSVAS61JXJPaIMTPf8y7y1g4HM-1d/exec';
     
     let carInventory = [];
+    let activeTab = 'deliveries';
 
     window.onload = function() {
     if (!auth.isAuthenticated()) {
@@ -12,10 +13,17 @@
     initializeDarkMode();
 
     loadCarInventory(function() {
-        loadDeliveries();
+        loadData();
     });
-    document.getElementById('filterSelect').addEventListener('change', loadDeliveries);
+    document.getElementById('filterSelect').addEventListener('change', loadData);
     };
+
+    function switchTab(tab) {
+    activeTab = tab;
+    document.getElementById('tab-deliveries').classList.toggle('active', tab === 'deliveries');
+    document.getElementById('tab-returns').classList.toggle('active', tab === 'returns');
+    loadData();
+    }
 
     function loadCarInventory(callback) {
     fetch(`${BACKEND_URL}?action=getCarInventory&apiKey=${encodeURIComponent(auth.getApiKey())}`)
@@ -31,19 +39,21 @@
         });
     }
 
-    function loadDeliveries() {
+    function loadData() {
     const filter = document.getElementById('filterSelect').value;
+    const action = activeTab === 'deliveries' ? 'getDeliveries' : 'getReturns';
+    const loadingText = activeTab === 'deliveries' ? 'Cargando entregas...' : 'Cargando devoluciones...';
 
     document.getElementById('deliveries-container').innerHTML = `
         <div class="loading">
         <div class="spinner"></div>
-        <div>Cargando entregas...</div>
+        <div>${loadingText}</div>
         </div>
     `;
-    
-    fetch(`${BACKEND_URL}?action=getDeliveries&filter=${filter}&apiKey=${encodeURIComponent(auth.getApiKey())}`)
+
+    fetch(`${BACKEND_URL}?action=${action}&filter=${filter}&apiKey=${encodeURIComponent(auth.getApiKey())}`)
         .then(response => response.json())
-        .then(deliveries => displayDeliveries(deliveries))
+        .then(data => activeTab === 'deliveries' ? displayDeliveries(data) : displayReturns(data))
         .catch(error => showError(error));
     }
 
@@ -127,6 +137,65 @@
             <span class="icon">📝</span>
             <span class="label">Notas:</span>
             <span>${delivery.notes}</span>
+        </div>
+        ` : ''}
+        </div>
+    `).join('');
+    }
+
+    function displayReturns(returns) {
+    const container = document.getElementById('deliveries-container');
+
+    if (!returns || returns.length === 0) {
+        container.innerHTML = `
+        <div class="empty-state">
+            <div class="icon">📭</div>
+            <h2>No hay devoluciones</h2>
+            <p>Disfruta tu día libre!</p>
+        </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = returns.map(r => `
+        <div class="delivery-card return-card">
+        <div class="main-label">
+            <span class="icon">🚗</span>
+            <span class="label">Vehículo:</span>
+            <span>${r.car || 'Sin asignar'}</span>
+        </div>
+
+        <div class="info-row">
+            <span class="icon">↩️</span>
+            <span class="label">Devolución:</span>
+            <span>${r.returnDateTime} en <strong>${r.returnPlace}</strong></span>
+        </div>
+
+        <div class="info-row">
+            <span class="icon">👤</span>
+            <span class="label">Cliente:</span>
+            <span>${r.customer || 'N/A'}</span>
+        </div>
+
+        <div class="info-row">
+            <span class="icon">☎️</span>
+            <span class="label">Número:</span>
+            <span>
+            ${r.phone ?
+                `<a href="https://wa.me/${r.phone.replace(/\D/g, '')}"
+                target="_blank"
+                class="whatsapp-link">
+                ${r.phone}
+                </a>`
+                : 'N/A'}
+            </span>
+        </div>
+
+        ${r.notes ? `
+        <div class="info-row">
+            <span class="icon">📝</span>
+            <span class="label">Notas:</span>
+            <span>${r.notes}</span>
         </div>
         ` : ''}
         </div>

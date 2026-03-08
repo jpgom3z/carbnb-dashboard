@@ -148,6 +148,44 @@ body {
     transform: translateY(-2px);
 }
 
+/* Tab toggle */
+.tab-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 4px;
+    margin: 0 auto 16px auto;
+    width: 100%;
+    max-width: 600px;
+    gap: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn.active {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tab-btn:not(.active):hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
 /* Delivery cards - modern premium design */
 .delivery-card {
     background: white;
@@ -160,6 +198,10 @@ body {
     border: 2px solid transparent;
     max-width: 100%;
     overflow-x: hidden;
+}
+
+.return-card {
+    border-left: 4px solid #ed8936;
 }
 
 .delivery-card:hover {
