@@ -71,6 +71,12 @@
         return;
     }
     
+    deliveries.sort((a, b) => {
+        const dateA = new Date(`${a.deliveryDate} ${a.arrivalTime}`);
+        const dateB = new Date(`${b.deliveryDate} ${b.arrivalTime}`);
+        return dateA - dateB;
+    });
+
     container.innerHTML = deliveries.map(delivery => `
         <div class="delivery-card">
         <div class="main-label">
@@ -156,6 +162,8 @@
         `;
         return;
     }
+
+    returns.sort((a, b) => new Date(a.returnDateTime) - new Date(b.returnDateTime));
 
     container.innerHTML = returns.map(r => `
         <div class="delivery-card return-card">
